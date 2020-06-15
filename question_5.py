@@ -19,6 +19,11 @@ def go(board,i=0,j=0,string=""):
     if string == "Vinh":
         print_board(board)
     else:
+        if string+board[i][j] == "Vinh":
+            temp = board[i][j]
+            board[i][j] = "*"
+            print_board(board)
+            board[i][j] = temp
         moves = get_move(board,i,j)
         for move in moves:
             temp = board[i][j]
@@ -31,4 +36,5 @@ board = [["V","i","n","h"],
          ["i","n","h"," "],
          ["n","h"," "," "],
          ["h"," "," "," "]]
+
 go(board)
